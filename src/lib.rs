@@ -73,6 +73,12 @@ impl Pcf8574 {
     /// Set the hardware type.
     pub fn set_hardware_type(&mut self, hardware_type: HardwareType) {
         self.hardware_type = hardware_type;
+        match self.hardware_type {
+            HardwareType::Default => {},
+            HardwareType::JoyIT => {
+                self.data = 0b0000_0000;
+            },
+        }
     }
 
     /// Set the display's backlight on or off.
