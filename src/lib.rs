@@ -25,7 +25,7 @@ pub enum ErrorHandling {
     Panic,
 
     /// Run a custom handler function.
-    Custom(Box<dyn FnMut(LinuxI2CError) + 'static>),
+    Custom(Box<dyn FnMut(LinuxI2CError) + Send + Sync + 'static>),
 }
 
 /// Hardware type of the LCD display
