@@ -107,15 +107,6 @@ impl Hardware for Pcf8574 {
         }
     }
 
-    fn rw(&mut self, bit: bool) {
-        match self.hardware_type {
-            HardwareType::Default => {},
-            HardwareType::JoyIT => {
-                self.set_bit(5, bit);
-            },
-        }
-    }
-
     fn enable(&mut self, bit: bool) {
         match self.hardware_type {
             HardwareType::Default => {
